@@ -1,9 +1,9 @@
 {
-    "name": "hcodebr/ecommerce",
+    "name": "ramongimee/ecommerce",
     "authors": [
         {
-            "name": "Hcode Treinamentos",
-            "email": "suporte@hcode.com.br"
+            "name": "Ramon Gimenes",
+            "email": "ramongimee@hotmail.com"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "vendor\\hcodebr\\php-classes\\src"
+            "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
         }
     }
 }
