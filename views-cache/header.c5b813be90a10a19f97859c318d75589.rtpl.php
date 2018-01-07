@@ -7,7 +7,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hcode Store</title>
+    <title>Ramon Gimenes</title>
+
+    <!-- Icones Aba Navegador -->
+    <link rel="icon" href="..\res\site\img\logo-ico-site.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="..\res\site\img\logo-ico-site.png" type="image/x-icon" />   
 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -42,17 +46,17 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> Minha Conta</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Lista de Desejos</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Meu Carrinho</a></li>
+                            <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Meu Carrinho</a></li>
                             <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">moeda :</span><span class="value">BRL </span><b class="caret"></b></a>
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="ke    y">moeda :</span><span class="value">BRL </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">BRL</a></li>
                                     <li><a href="#">USD</a></li>
@@ -69,7 +73,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div> <!-- End header area -->
@@ -106,7 +110,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Home</a></li>
-                        <li><a href="#">Produtos</a></li>
+                        <li><a href="/products">Produtos</a></li>
                         <li><a href="/cart">Carrinho</a></li>
                     </ul>
                 </div>

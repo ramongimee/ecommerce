@@ -12,7 +12,8 @@ $app->get('/', function() {
   $page = new Page();
 
   $page->setTpl("index",array(
-    "products"=>Product::checkList($products)
+    "products"=>Product::checkList($products),
+    "date"=>date("Y")
   ));
 
 });
@@ -32,7 +33,8 @@ $app->get("/categories/:idcategory",function($idcategory){
   for ($i=1; $i <= $pagination["pages"]; $i++) {
     array_push($pages,array(
       "link"=>"/categories/".$category->getidcategory()."?page=".$i,
-      "page"=>$i
+      "page"=>$i,
+      "date"=>date("Y")
     ));
   }
 
@@ -41,7 +43,8 @@ $app->get("/categories/:idcategory",function($idcategory){
   $page->setTpl("category",array(
     "category"=>$category->getValues(),
     "products"=>$pagination["data"],
-    "pages"=>$pages
+    "pages"=>$pages,
+    "date"=>date("Y")
   ));
 
 });
@@ -61,7 +64,8 @@ $app->get("/products/:desurl",function($desurl){
 
   $page->setTpl("product-detail",array(
     "product"=>$product->getValues(),
-    "categories"=>$product->getCategories()
+    "categories"=>$product->getCategories(),
+    "date"=>date("Y")
   ));
 
 
@@ -74,7 +78,66 @@ $app->get("/cart",function(){
 
   $page = new Page();
 
-  $page->setTpl("cart");
+  $page->setTpl("cart",array(
+  "date"=>date("Y"),
+  "cart"=>$cart->getValues(),
+  "products"=>$cart->getProducts()
+  ));
+
+});
+
+$app->get("/cart/:idproduct/add",function($idproduct){
+
+  $product = new Product();
+
+  $product->get((int)$idproduct);
+
+  $cart = Cart::getFromSession();
+
+  $qtd = (isset($_GET["qtd"]))?(int)$_GET["qtd"]:1;
+
+  for ($i=0; $i < $qtd; $i++) { 
+
+    $cart->addProduct($product);
+
+  }
+  
+  header("Location: /cart");
+  exit;
+
+
+});
+
+
+$app->get("/cart/:idproduct/minus",function($idproduct){
+
+  $product = new Product();
+
+  $product->get((int)$idproduct);
+
+  $cart = Cart::getFromSession();
+
+  $cart->removeProduct($product);  
+
+  header("Location: /cart");
+  exit;
+
+
+});
+
+$app->get("/cart/:idproduct/remove",function($idproduct){
+
+  $product = new Product();
+
+  $product->get((int)$idproduct);
+
+  $cart = Cart::getFromSession();
+
+  $cart->removeProduct($product,true);
+
+  header("Location: /cart");
+  exit;
+
 
 });
 

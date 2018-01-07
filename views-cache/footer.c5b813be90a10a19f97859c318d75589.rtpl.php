@@ -4,12 +4,12 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="footer-about-us">
-                    <h2>Hcode Store</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                    <h2>Ramon Gimenes</h2>
+                    <p>Site desenvolvido no curso de PHP 7 pela Hcode,disponibilizado pela Udemy, Inc.Ecommerce com administração
+                    carrinho de compras,calculo de frete pelo cep entre outras funcionalidades.</p>
                     <div class="footer-social">
-                        <a href="https://www.facebook.com/hcodebr" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="https://twitter.com/hcodebr" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/channel/UCjWENuSH2gX55-y7QSZiWxA" target="_blank"><i class="fa fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/ramon.gimenes1" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/channel/UC6LNDgxR48ueC_K5gkTotmA?view_as=subscriber" target="_blank"><i class="fa fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -37,11 +37,11 @@
             <div class="col-md-3 col-sm-6">
                 <div class="footer-newsletter">
                     <h2 class="footer-wid-title">Newsletter</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus!</p>
+                    <p>Seja o primeiro a saber das nossas promoções e novidades!</p>
                     <div class="newsletter-form">
                         <form action="#">
-                            <input type="email" placeholder="Type your email">
-                            <input type="submit" value="Subscribe">
+                            <input type="email" placeholder="Digite seu e-mail">
+                            <input type="submit" value="Inscreva-se">
                         </form>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="copyright">
-                    <p>&copy; 2017 Hcode Treinamentos. <a href="http://www.hcode.com.br" target="_blank">hcode.com.br</a></p>
+                    <p>&copy; <?php echo htmlspecialchars( $date, ENT_COMPAT, 'UTF-8', FALSE ); ?> Hcode Treinamentos. Desenvolvido por - <a href="http://www.ramongimenes.com.br" target="_blank">Ramon</a></p>
                 </div>
             </div>
 
