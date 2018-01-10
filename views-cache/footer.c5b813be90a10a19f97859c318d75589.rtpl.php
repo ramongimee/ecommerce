@@ -29,7 +29,7 @@
                 <div class="footer-menu">
                     <h2 class="footer-wid-title">Categorias</h2>
                     <ul>
-                      <?php require $this->checkTemplate("categories-menu");?>                      
+                      <?php require $this->checkTemplate("categories-menu");?>
                     </ul>
                 </div>
             </div>

@@ -285,6 +285,17 @@ class Cart extends Model{
 
     }
 
+    public static function removeToSession()
+    {
+       $_SESSION[Cart::SESSION] = NULL;
+    }
+
+    public function checkZipCode()
+    {
+       $products = $this->getProducts();
+       if (!count($products) > 0) $this->setdeszipcode(''); $this->setvlfreight(0);
+    }
+
 }
 
 ?>
