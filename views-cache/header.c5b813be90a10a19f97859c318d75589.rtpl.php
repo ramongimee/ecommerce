@@ -11,7 +11,7 @@
 
     <!-- Icones Aba Navegador -->
     <link rel="icon" href="..\res\site\img\logo-ico-site.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="..\res\site\img\logo-ico-site.png" type="image/x-icon" />   
+    <link rel="shortcut icon" href="..\res\site\img\logo-ico-site.png" type="image/x-icon" />
 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -47,7 +47,12 @@
                             <li><a href="#"><i class="fa fa-user"></i> Minha Conta</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Lista de Desejos</a></li>
                             <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Meu Carrinho</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
+                            <?php if( checklogin(false) ){ ?>
+                            <li><a href="/profile"><i class="fa fa-user"></i> <?php echo getUserName(); ?></a></li>
+                            <li><a href="/logout"><i class="fa fa-close"></i> Sair</a></li>
+                            <?php }else{ ?>
+                            <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
