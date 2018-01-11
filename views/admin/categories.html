@@ -19,14 +19,14 @@
   		<div class="box box-primary">
 
             <div class="box-header">
-              <a href="/admin/categories/create" class="btn btn-success">Cadastrar Categoria</a>
+              <a href="/admin/categories/create" class="btn btn-success fa fa-users"> Cadastrar Categoria</a>
             </div>
 
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th style="width: 10px">#</th>
+                    <th style="width: 10px">ID</th>
                     <th>Nome da Categoria</th>
                     <th style="width: 240px">&nbsp;</th>
                   </tr>

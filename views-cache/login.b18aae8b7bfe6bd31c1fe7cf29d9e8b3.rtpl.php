@@ -30,6 +30,13 @@
       <span><b>Admin</b>Ecommerce</a></span>
     <!-- <a href="/res/admin/index2.html"><b>Admin</b>Ecommerce</a> -->
   </div>
+
+  <?php if( $error != '' ){ ?>
+  <div class="alert alert-danger">
+      <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+  </div>
+  <?php } ?>
+
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Faça o login para iniciar sua sessão</p>

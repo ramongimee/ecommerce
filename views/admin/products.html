@@ -17,16 +17,16 @@
   <div class="row">
   	<div class="col-md-12">
   		<div class="box box-primary">
-            
+
             <div class="box-header">
-              <a href="/admin/products/create" class="btn btn-success">Cadastrar Produto</a>
+              <a href="/admin/products/create" class="btn btn-success fa fa-users"> Cadastrar Produto</a>
             </div>
 
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th style="width: 10px">#</th>
+                    <th style="width: 10px">ID</th>
                     <th>Nome da Produto</th>
                     <th>Preço</th>
                     <th>Largura</th>

@@ -17,16 +17,16 @@
   <div class="row">
   	<div class="col-md-12">
   		<div class="box box-primary">
-            
+
             <div class="box-header">
-              <a href="/admin/users/create" class="btn btn-success">Cadastrar Usuário</a>
+              <a href="/admin/users/create" class="btn btn-success fa fa-users"> Cadastrar Usuário</a>
             </div>
 
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th style="width: 10px">#</th>
+                    <th style="width: 10px">ID</th>
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Login</th>

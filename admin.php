@@ -8,9 +8,13 @@ $app->get('/admin', function() {
 
   User::verifyLogin();
 
+  $users = User::listAll();
+
   $page = new PageAdmin ();
 
-  $page->setTpl("index");
+  $page->setTpl("index",array(
+    "users"=>$users
+  ));
 
 });
 
@@ -21,13 +25,23 @@ $app->get('/admin/login', function(){
     "footer"=>false
   ]);
 
-  $page->setTpl("login");
+  $page->setTpl("login",array(
+    "error"=>User::getError()
+  ));
 
 });
 
 $app->post('/admin/login',function(){
 
-  User::login($_POST["login"],$_POST["password"]);
+  try {
+
+    User::login($_POST["login"],$_POST["password"]);
+
+  } catch (Exception $e) {
+
+    User::setError($e->getMessage());
+
+  }
 
   header("Location: /admin");
   exit;

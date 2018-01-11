@@ -14,8 +14,7 @@ $app->get('/', function() {
   $page = new Page();
 
   $page->setTpl("index",array(
-    "products"=>Product::checkList($products),
-    "date"=>date("Y")
+    "products"=>Product::checkList($products)
   ));
 
 });
@@ -35,8 +34,7 @@ $app->get("/categories/:idcategory",function($idcategory){
   for ($i=1; $i <= $pagination["pages"]; $i++) {
     array_push($pages,array(
       "link"=>"/categories/".$category->getidcategory()."?page=".$i,
-      "page"=>$i,
-      "date"=>date("Y")
+      "page"=>$i
     ));
   }
 
@@ -45,8 +43,7 @@ $app->get("/categories/:idcategory",function($idcategory){
   $page->setTpl("category",array(
     "category"=>$category->getValues(),
     "products"=>$pagination["data"],
-    "pages"=>$pages,
-    "date"=>date("Y")
+    "pages"=>$pages
   ));
 
 });
@@ -66,8 +63,7 @@ $app->get("/products/:desurl",function($desurl){
 
   $page->setTpl("product-detail",array(
     "product"=>$product->getValues(),
-    "categories"=>$product->getCategories(),
-    "date"=>date("Y")
+    "categories"=>$product->getCategories()
   ));
 
 
@@ -81,7 +77,6 @@ $app->get("/cart",function(){
   $page = new Page();
 
   $page->setTpl("cart",array(
-  "date"=>date("Y"),
   "cart"=>$cart->getValues(),
   "products"=>$cart->getProducts(),
   "error"=>Cart::getMsgError()
@@ -170,7 +165,6 @@ $app->get("/checkout",function(){
   $page->setTpl("checkout",array(
     "cart"=>$cart->getValues(),
     "address"=>$address->getValues(),
-    "date"=>date("Y")
   ));
 
 });
@@ -180,8 +174,9 @@ $app->get("/login",function(){
   $page = new Page();
 
   $page->setTpl("login",array(
-    "date"=>date("Y"),
-    "error"=>User::getError()
+    "error"=>User::getError(),
+    "errorRegister"=>User::getErrorRegister(),
+    "registerValues"=>(isset($_SESSION["registerValues"])) ? $_SESSION["registerValues"] : ["name"=>"","email"=>"","phone"=>""]
   ));
 
 });
@@ -211,6 +206,58 @@ $app->get("/logout",function(){
   session_regenerate_id();
 
   header("Location: /login");
+  exit;
+
+});
+
+$app->post("/register",function(){
+
+  $_SESSION["registerValues"] = $_POST;
+
+  if(!isset($_POST["name"]) || $_POST["name"] == ""){
+    User::setErrorRegister("Preencha o seu nome.");
+    header("Location: /login");
+    exit;
+  }
+
+  if(!isset($_POST["email"]) || $_POST["email"] == ""){
+    User::setErrorRegister("Preencha o seu e-mail.");
+    header("Location: /login");
+    exit;
+  }
+
+  if(!isset($_POST["password"]) || $_POST["password"] == ""){
+    User::setErrorRegister("Preencha a senha.");
+    header("Location: /login");
+    exit;
+  }
+
+  if(User::checkLoginExist($_POST["email"])===true){
+
+    User::setErrorRegister("Este endereço de e-mail já está sendo usado por outro usuário.");
+    header("Location: /login");
+    exit;
+
+  }
+
+  $user = new User();
+
+  $user->setData(array(
+    "inadmin"=>0,
+    "deslogin"=>$_POST["email"],
+    "desperson"=>$_POST["name"],
+    "desmail"=>$_POST["email"],
+    "despassword"=>$_POST["password"],
+    "nrphone"=>$_POST["phone"]
+  ));
+
+  $user->save();
+
+  $_SESSION["registerValues"] = NULL;
+
+  User::login($_POST["email"],$_POST["password"]);
+
+  header("Location: /checkout");
   exit;
 
 });
