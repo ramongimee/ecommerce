@@ -257,6 +257,7 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-flag-o"></i> <span>Categorias</span></a></li>
         <li><a href="/admin/products"><i class="fa fa-edit"></i> <span>Produtos</span></a></li>
