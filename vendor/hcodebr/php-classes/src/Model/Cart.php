@@ -228,7 +228,7 @@ class Cart extends Model{
       }
     }
 
-    public static function formatValueToDecimal($value):float
+    public static function formatValueToDecimal($value)
     {
       $value = str_replace(".","",$value);
       return str_replace(",",".",$value);
