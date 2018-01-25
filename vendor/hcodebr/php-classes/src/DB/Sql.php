@@ -51,7 +51,7 @@ class Sql {
 
 	}
 
-	public function select($rawQuery, $params = array())
+	public function select($rawQuery, $params = array()):array
 	{
 
 		$stmt = $this->conn->prepare($rawQuery);
